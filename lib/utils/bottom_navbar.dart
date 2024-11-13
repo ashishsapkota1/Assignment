@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:untitled1/utils/utils.dart';
 
 class HomeScreenNavBar extends StatefulWidget {
-  const HomeScreenNavBar({super.key});
+  final int selectedIndex;
+  final Function(int) onTap;
+  const HomeScreenNavBar({super.key, required this.selectedIndex, required this.onTap});
 
   @override
   State<HomeScreenNavBar> createState() => _HomeScreenNavBarState();
 }
 
 class _HomeScreenNavBarState extends State<HomeScreenNavBar> {
-  int _selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(items: const <BottomNavigationBarItem>[
@@ -20,15 +20,15 @@ class _HomeScreenNavBarState extends State<HomeScreenNavBar> {
       BottomNavigationBarItem(icon: Icon(Icons.person_2_outlined, ), label: ''),
 
     ],
-    unselectedItemColor: AppColor.textColor,
 
-    currentIndex: _selectedIndex,
+    unselectedItemColor: AppColor.textColor,
+    showSelectedLabels: false,
+    showUnselectedLabels: false,
+    elevation: 20,
+
+    currentIndex: widget.selectedIndex,
     selectedItemColor: AppColor.containerColor,
 
-    onTap: (int index){
-      setState(() {
-        _selectedIndex = index;
-      });
-    },);
+    onTap: widget.onTap);
   }
 }
