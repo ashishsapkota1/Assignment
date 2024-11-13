@@ -21,8 +21,3 @@ class DecreaseQuantity extends CartEvent{
   final String productName;
   DecreaseQuantity(this.productName);
 }
-
-class SearchProductEvent extends CartEvent{
-  final String name;
-  SearchProductEvent(this.name);
-}

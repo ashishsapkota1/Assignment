@@ -14,20 +14,17 @@ class ProductListView extends StatefulWidget {
 }
 
 class _ProductListViewState extends State<ProductListView> {
-  // Initial product list
   final List<CartProductModel> allProducts = [
     CartProductModel('Apple', 100, 1, 1),
     CartProductModel('Banana', 200, 1, 1),
     CartProductModel('Carrot', 300, 1, 1),
   ];
 
-  // This will hold the filtered list of products
   List<CartProductModel> filteredProducts = [];
 
   @override
   void initState() {
     super.initState();
-    // Initially show all products
     filteredProducts = allProducts;
   }
 

@@ -49,17 +49,5 @@ class CartViewModel extends Bloc<CartEvent, List<CartProductModel>> {
         emit(updatedCart);
       }
     });
-
-    on<SearchProductEvent>((event, emit) {
-      final allCartProduct = List<CartProductModel>.from(state);
-      if (event.name.isEmpty) {
-        emit(allCartProduct);
-      } else {
-        final filteredProduct = allCartProduct
-            .where((product) => product.productName == event.name)
-            .toList();
-        emit(filteredProduct);
-      }
-    });
   }
 }
